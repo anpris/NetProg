@@ -26,11 +26,11 @@ self_addr->sin_port = htons(44214);
 self_addr->sin_addr.s_addr = inet_addr("127.0.0.1");
 //Адрес сервера
 sockaddr_in * srv_addr = new (sockaddr_in);
-srv_addr->sin_family = AF_INET; // интернет протокол IPv4
+srv_addr->sin_family = AF_INET;
 srv_addr->sin_port = htons(44214);
 srv_addr->sin_addr.s_addr = inet_addr("127.0.0.1");
 //Фиктивное соединение
-int rc = connect(s,(const sockaddr*)srv_addr, sizeof(sockaddr_in));//(const sockaddr*)srv_addr - указатель на адресную структуру sizeof(sockaddr_in) - р адр стр
+int rc = connect(s,(const sockaddr*)srv_addr, sizeof(sockaddr_in));
 if (rc == -1) {
     close(s);
     cout << "Error: failed connect to server.\n";
